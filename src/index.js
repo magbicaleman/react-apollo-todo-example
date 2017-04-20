@@ -18,7 +18,9 @@ const client = new ApolloClient({
 
 function filter (previousState = 'SHOW_ALL', action) {
   if (action.type === 'SET_FILTER') {
-    return action.filter
+    return Object.assign({}, previousState, {
+      filter: action.filter
+    });
   }
 
   return previousState
